@@ -31,6 +31,6 @@ Route::get('/list/{name}','App\Http\Controllers\DeviceController@getListByName')
 Route::post('addDevice', 'App\Http\Controllers\PostControler@addData');
 
 //PUT(UPadte methode)
-Route::post('addDevice', 'App\Http\Controllers\PostControler@addData');
+Route::put('UpdateDevice', 'App\Http\Controllers\PutController@UpdateData');
 
 // Route::get('/Catergory', 'App\Http\Controllers\CategoryController@addcategory')->name('AddCatergory');
