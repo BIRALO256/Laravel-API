@@ -6,16 +6,29 @@ use Illuminate\Http\Request;
 use App\Models\device;
 class PostControler extends Controller
 {
-    public function addData(Request $data){
-        $device =new device();
+    public function addData(Request $request)
+    {
+        // Validate the request data if needed
 
-        $device->name= $data->name;
-        $device->number_id =$data->number_id;
-        $result = $device->save;
-        if($result){
-            return ["Result"=>"Data has been saved sucessfully"];
-        }else{
-            return ["Result"=>"Data not saved"];
+        $existingDevice = Device::where('name', $request->name)
+                                ->orwhere('number_id', $request->number_id)
+                                ->first();
+
+        if ($existingDevice) {
+            return ["Result" => "Duplicate data: Device with the same name or number_id already exists"];
+        }
+
+        $device = new Device();
+
+        $device->name = $request->name;
+        $device->number_id = $request->number_id;
+
+        $result = $device->save();
+
+        if ($result) {
+            return ["Result" => "Data has been saved successfully"];
+        } else {
+            return ["Result" => "Data not saved"];
         }
     }
 }
