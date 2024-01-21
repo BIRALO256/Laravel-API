@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dummyAPI;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get("data",[dummyAPI::class,'returnData']);
+Route::get('categories', 'App\Http\Controllers\DeviceController@list');
 // Route::get('/Catergory', 'App\Http\Controllers\CategoryController@addcategory')->name('AddCatergory');
