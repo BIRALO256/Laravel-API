@@ -30,4 +30,7 @@ Route::get('/list/{name}','App\Http\Controllers\DeviceController@getListByName')
 //POST API
 Route::post('addDevice', 'App\Http\Controllers\PostControler@addData');
 
+//PUT(UPadte methode)
+Route::post('addDevice', 'App\Http\Controllers\PostControler@addData');
+
 // Route::get('/Catergory', 'App\Http\Controllers\CategoryController@addcategory')->name('AddCatergory');
