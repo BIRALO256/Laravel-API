@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get("data",[dummyAPI::class,'returnData']);
 Route::get('categories', 'App\Http\Controllers\DeviceController@list');
+Route::get('/Catergory/{id}', 'App\Http\Controllers\DeviceController@list1');
 // Route::get('/Catergory', 'App\Http\Controllers\CategoryController@addcategory')->name('AddCatergory');

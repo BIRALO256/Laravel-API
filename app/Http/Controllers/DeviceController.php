@@ -10,4 +10,7 @@ class DeviceController extends Controller
     public function list(){
         return device::all();
     }
+    public function list1($id){
+        return device::find($id);
+    }
 }
