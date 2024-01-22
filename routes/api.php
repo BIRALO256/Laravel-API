@@ -32,5 +32,7 @@ Route::post('addDevice', 'App\Http\Controllers\PostControler@addData');
 
 //PUT(UPadte methode)
 Route::put('UpdateDevice', 'App\Http\Controllers\PutController@UpdateData');
+//SERCH API
+Route::get('search/{name}', 'App\Http\Controllers\PutController@searchbyCharacter');
 
 // Route::get('/Catergory', 'App\Http\Controllers\CategoryController@addcategory')->name('AddCatergory');

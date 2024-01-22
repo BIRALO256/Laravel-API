@@ -20,4 +20,14 @@ class PutController extends Controller
         }
 
     }
+
+    public function searchbyCharacter($name){
+        $device = Device::where('name',"like","%".$name."%")->first();
+
+    if ($device) {
+        return response()->json($device);
+    } else {
+        return response()->json(['message' => 'Device not found.'], 404);
+    }
+    }
 }
