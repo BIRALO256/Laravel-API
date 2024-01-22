@@ -30,4 +30,21 @@ class PutController extends Controller
         return response()->json(['message' => 'Device not found.'], 404);
     }
     }
+    
+    public function delete($id){
+        $device = Device::find($id);
+
+        if (!$device) {
+            return response()->json(['message' => 'Device not found'], Response::HTTP_NOT_FOUND);
+        }
+    
+        // Attempt to delete the device
+        try {
+            $device->delete();
+            return response()->json(['message' => 'Device has been deleted']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to delete device', 'error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
