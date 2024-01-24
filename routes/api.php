@@ -37,6 +37,15 @@ Route::get('search/{name}', 'App\Http\Controllers\PutController@searchbyCharacte
 //DELETe methode
 Route::get('delete/{id}', 'App\Http\Controllers\PutController@delete');
 
+//you can aonly acces this resoure API after being authoried using the auth api a get a token which you have to send
+Route::middleware('auth:api')->get('/user',function(){
+    Route::apiResource('memeber', 'App\Http\Controllers\ResourceController');
+});
+
+
 //Resource controller
-Route::apiResource('memeber', 'App\Http\Controllers\ResourceController');
+
+//Authitication of user
+Route::post('Auth', 'App\Http\Controllers\userController@authenticate');
 // Route::get('/Catergory', 'App\Http\Controllers\CategoryController@addcategory')->name('AddCatergory');
+
